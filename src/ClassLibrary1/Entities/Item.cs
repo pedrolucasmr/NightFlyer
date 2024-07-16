@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NightFlyer.Entities.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,13 @@ namespace NightFlyer.Entities.Entities
 
         public int Price { get; set; }
 
+        public int DescountedPrice { get; set; }
+
         public string Seller { get; set; }
 
         public string Brand { get; set; }
+
+        public ItemStatusEnum Status { get; set; }
 
         public List<string> Characteristics { get; set; }
 
