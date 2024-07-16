@@ -6,4 +6,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\NightFlyer.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTOs\Responses\" />
+    <Folder Include="DTOs\Requests\" />
+    <Folder Include="Mappers\" />
+    <Folder Include="DataModels\" />
+    <Folder Include="RepositoryContracts\" />
+    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
 </Project>
