@@ -13,8 +13,6 @@ namespace NightFlyer.Entities.Entities
 
         public int Price { get; set; }
 
-        public int DescountedPrice { get; set; }
-
         public string Seller { get; set; }
 
         public string Brand { get; set; }
@@ -22,6 +20,8 @@ namespace NightFlyer.Entities.Entities
         public ItemStatusEnum Status { get; set; }
 
         public List<string> Characteristics { get; set; }
+
+        public List<Category> Categories { get; set; }
 
         public bool MatchCharacteristic(string characteristic)
         {
