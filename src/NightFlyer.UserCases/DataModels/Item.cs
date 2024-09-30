@@ -9,6 +9,8 @@ namespace NightFlyer.UseCases.DataModels
 {
     public record Item
     {
+        public Item() { }
+
         public Item(Entities.Entities.Item itemEntity, string id)
         {
             if(id == null)

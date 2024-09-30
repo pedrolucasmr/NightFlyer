@@ -8,6 +8,8 @@ namespace NightFlyer.UseCases.DataModels
 {
     public record Category
     {
+        public Category() { }
+
         public Category(Entities.Entities.Category categoryEntity)
         {
             this.Id = categoryEntity.Id;

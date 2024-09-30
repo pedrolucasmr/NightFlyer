@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NightFlyer.Adapters.Infrastructure.Data
 {
-    internal class ApiDbContext : DbContext
+    public class ApiDbContext : DbContext
     {
         public ApiDbContext(DbContextOptions<ApiDbContext> options)
         : base(options)
@@ -16,5 +16,7 @@ namespace NightFlyer.Adapters.Infrastructure.Data
         }
 
         public DbSet<Item> Items { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ItemCategory> itemCategories { get; set; }
     }
 }

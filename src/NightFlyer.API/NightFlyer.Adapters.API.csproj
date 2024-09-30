@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NightFlyer.Adapters.Infrastructure\NightFlyer.Adapters.Infrastructure.csproj" />
     <ProjectReference Include="..\NightFlyer.UserCases\NightFlyer.UseCases.csproj" />
   </ItemGroup>
 

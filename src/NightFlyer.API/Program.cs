@@ -1,4 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using NightFlyer.Adapters.Infrastructure.Data;
+using NightFlyer.Adapters.Infrastructure.Extensions.DI;
+
+const string MSSQL_CONNECTION_STRING_KEY = "MsSql";
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAPIDbContext(builder.Configuration.GetConnectionString(MSSQL_CONNECTION_STRING_KEY));
 
 // Add services to the container.
 builder.Services.AddRazorPages();

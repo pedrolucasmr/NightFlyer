@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace NightFlyer.UseCases.DataModels
 {
-    internal record ItemCategory
+    public record ItemCategory
     {
+        public ItemCategory() { }
+
         public ItemCategory(string itemId, string categoryId)
         {
             this.ItemId = itemId;
             this.CategoryId = categoryId;
         }
+
+        public string Id { get; set; }
 
         public string ItemId { get; set; }
 
