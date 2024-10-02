@@ -1,12 +1,5 @@
-﻿using NightFlyer.Entities.Entities;
-using NightFlyer.UseCases.DTOs.Requests;
-using NightFlyer.UseCases.DTOs.Responses;
+﻿using NightFlyer.UseCases.DTOs.Requests;
 using NightFlyer.UseCases.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NightFlyer.UseCases.DataModels
 {

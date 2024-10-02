@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using NightFlyer.Adapters.Infrastructure.Data;
 using NightFlyer.Adapters.Infrastructure.Extensions.DI;
 
 const string MSSQL_CONNECTION_STRING_KEY = "MsSql";

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NightFlyer.UseCases.DTOs.Responses
+﻿namespace NightFlyer.UseCases.DTOs.Responses
 {
     public class UpdateItemResponse
     {
