@@ -2,7 +2,7 @@
 
 namespace NightFlyer.UseCases.DTOs.Requests
 {
-    internal class CreateCategoryRequest
+    public class CreateCategoryRequest
     {
         /// <summary>
         /// Name of the category

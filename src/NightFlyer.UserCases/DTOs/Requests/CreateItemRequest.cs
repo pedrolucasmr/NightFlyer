@@ -44,8 +44,14 @@ namespace NightFlyer.UseCases.DTOs.Requests
         /// A List of ids of categories of the item
         /// </summary>
         [Required]
-        [JsonPropertyName("status")]
+        [JsonPropertyName("categories")]
         public List<string> Categories { get; set; }
+
+        /// <summary>
+        /// A List of CreateCategoryRequest requests
+        /// </summary>
+        [JsonPropertyName("new_categories")]
+        public List<CreateCategoryRequest> NewCategories { get; set; }
 
         /// <summary>
         /// A List of characteristics of the item
