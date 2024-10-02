@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NightFlyer.Entities.Entities
 {
-    public class Category
+    public class CategoryEntity
     {
         public string Id { get; set; }
 

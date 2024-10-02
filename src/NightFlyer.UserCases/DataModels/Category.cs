@@ -10,11 +10,11 @@ namespace NightFlyer.UseCases.DataModels
     {
         public Category() { }
 
-        public Category(Entities.Entities.Category categoryEntity)
+        public Category(Category category)
         {
-            this.Id = categoryEntity.Id;
-            this.Name = categoryEntity.Name;
-            this.Description = categoryEntity.Description;
+            this.Id = category.Id;
+            this.Description = category.Description;
+            this.Name = category.Name;
         }
 
         public string Id { get; set; }
@@ -23,13 +23,23 @@ namespace NightFlyer.UseCases.DataModels
 
         public string Description { get; set; }
 
-        public Entities.Entities.Category ToEntity()
+        public Entities.Entities.CategoryEntity ToEntity()
         {
-            return new Entities.Entities.Category
+            return new Entities.Entities.CategoryEntity
             {
                 Id = this.Id,
                 Name = this.Name,
                 Description = this.Description
+            };
+        }
+
+        public Category FromEntity(Entities.Entities.CategoryEntity categoryEntity, string id)
+        {
+            return new Category()
+            {
+                Id = String.IsNullOrEmpty(id) ? Guid.NewGuid().ToString() : id,
+                Name = categoryEntity.Name,
+                Description = categoryEntity.Description
             };
         }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NightFlyer.Entities.Entities
 {
-    public class Item
+    public class ItemEntity
     {
         public string Name { get; set; }
 
@@ -21,7 +21,7 @@ namespace NightFlyer.Entities.Entities
 
         public List<string> Characteristics { get; set; }
 
-        public List<Category> Categories { get; set; }
+        public List<CategoryEntity> Categories { get; set; }
 
         public bool MatchCharacteristic(string characteristic)
         {

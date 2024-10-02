@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NightFlyer.UseCases.RepositoryContracts
 {
-    public interface ItemCategoriesRepository
+    public interface IItemCategoriesRepository
     {
         Task InsertItemCategoryAsync(ItemCategory item);
 
@@ -15,9 +15,9 @@ namespace NightFlyer.UseCases.RepositoryContracts
 
         Task UpdateItemCategoryByIdAsync(ItemCategory newItem);
 
-        Task<Item> GetItemCategoryByIdAsync(string id);
+        Task<ItemCategory> GetItemCategoryByIdAsync(string id);
 
-        Task<List<Item>> GetManyItemCategoriesByIdAsync(List<string> ids);
+        Task<List<ItemCategory>> GetManyItemCategoriesByIdAsync(List<string> ids);
 
         Task DeleteItemCategoryByIdAsync(string id);
 

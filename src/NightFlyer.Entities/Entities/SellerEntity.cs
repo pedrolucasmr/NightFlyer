@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NightFlyer.Entities.Entities
 {
-    public class Seller
+    public class SellerEntity
     {
         public string Name { get; set; }
 

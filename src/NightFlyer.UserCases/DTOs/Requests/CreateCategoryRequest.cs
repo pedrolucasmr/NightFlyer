@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace NightFlyer.UseCases.DTOs.Requests
 {
-    public record DeleteItemRequest
+    internal class CreateCategoryRequest
     {
         /// <summary>
-        /// Id of the item to be deleted(Single)
+        /// Name of the category
         /// </summary>
-        [JsonPropertyName("id")]
-        public string Id { get; set; }
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
 
         /// <summary>
-        /// The list of Ids of the items to be deleted(Many)
+        /// Description of the category
         /// </summary>
-        [JsonPropertyName("ids")]
-        public List<string> Ids { get; set; }
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
     }
 }

@@ -10,10 +10,20 @@ namespace NightFlyer.UseCases.DataModels
     {
         public ItemCategory() { }
 
-        public ItemCategory(string itemId, string categoryId)
+        public ItemCategory(string itemId, string categoryId, string id = null)
         {
+            if (String.IsNullOrEmpty(id))
+                this.Id = Guid.NewGuid().ToString();
+
             this.ItemId = itemId;
             this.CategoryId = categoryId;
+        }
+
+        public ItemCategory(ItemCategory itemCategory)
+        {
+            this.Id = itemCategory.Id;
+            this.CategoryId= itemCategory.CategoryId;
+            this.ItemId= itemCategory.ItemId;
         }
 
         public string Id { get; set; }

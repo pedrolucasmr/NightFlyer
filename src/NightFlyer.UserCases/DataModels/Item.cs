@@ -1,4 +1,5 @@
-﻿using NightFlyer.UseCases.Helpers;
+﻿using NightFlyer.Entities.Entities;
+using NightFlyer.UseCases.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,27 +12,12 @@ namespace NightFlyer.UseCases.DataModels
     {
         public Item() { }
 
-        public Item(Entities.Entities.Item itemEntity, string id)
-        {
-            if(id == null)
-            {
-                this.Id = $"item_{Guid.NewGuid().ToString()}";
-            }
-
-            this.Name = itemEntity.Name;
-            this.Price = itemEntity.Price;
-            this.Seller = itemEntity.Seller;
-            this.Brand = itemEntity.Brand;
-            this.Status = itemEntity.Status.ToString();
-            this.Characteristics = itemEntity.Characteristics;
-        }
-
         public Item(Item item)
         {
             this.Id = item.Id;
             this.Name = item.Name;
             this.Price = item.Price;
-            this.Seller = item.Seller;
+            this.SellerId = item.SellerId;
             this.Brand = item.Brand;
             this.Status = item.Status;
             this.Characteristics = item.Characteristics;
@@ -43,7 +29,7 @@ namespace NightFlyer.UseCases.DataModels
 
         public int Price { get; set; }
 
-        public string Seller { get; set; }
+        public string SellerId { get; set; }
 
         public string Brand { get; set; }
 
@@ -51,16 +37,30 @@ namespace NightFlyer.UseCases.DataModels
 
         public List<string> Characteristics { get; set; }
 
-        public Entities.Entities.Item ToEntity()
+        public Entities.Entities.ItemEntity ToEntity()
         {
-            return new Entities.Entities.Item
+            return new Entities.Entities.ItemEntity
             {
                 Name = this.Name,
                 Price = this.Price,
-                Seller = this.Seller,
+                Seller = this.SellerId,
                 Brand = this.Brand,
                 Status = EnumHelper.GetItemStatusEnumFromString(this.Status),
                 Characteristics = this.Characteristics
+            };
+        }
+
+        public static Item FromEntity(Entities.Entities.ItemEntity itemEntity, string id = null)
+        {
+            return new Item
+            {
+                Id = String.IsNullOrEmpty(id) ? Guid.NewGuid().ToString() : id,
+                Name = itemEntity.Name,
+                Price = itemEntity.Price,
+                SellerId = itemEntity.Seller,
+                Brand = itemEntity.Brand,
+                Status = itemEntity.Status.ToString(),
+                Characteristics = itemEntity.Characteristics
             };
         }
     }

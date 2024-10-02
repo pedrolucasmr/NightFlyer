@@ -15,9 +15,9 @@ namespace NightFlyer.UseCases.RepositoryContracts
 
         Task UpdateCategoryByIdAsync(Category newItem);
 
-        Task<Item> GetCategoryByIdAsync(string id);
+        Task<Category> GetCategoryByIdAsync(string id);
 
-        Task<List<Item>> GetManyCategoriesByIdAsync(List<string> ids);
+        Task<List<Category>> GetManyCategoriesByIdAsync(List<string> ids);
 
         Task DeleteCategoryByIdAsync(string id);
 
