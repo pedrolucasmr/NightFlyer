@@ -1,4 +1,6 @@
 ﻿using NightFlyer.Entities.Entities;
+using NightFlyer.UseCases.DTOs.Requests;
+using NightFlyer.UseCases.DTOs.Responses;
 using NightFlyer.UseCases.Helpers;
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,17 @@ namespace NightFlyer.UseCases.DataModels
             this.Brand = item.Brand;
             this.Status = item.Status;
             this.Characteristics = item.Characteristics;
+        }
+
+        public Item(CreateItemRequest request)
+        {
+            this.Id = Guid.NewGuid().ToString();
+            this.Name = request.Name;
+            this.Price = request.Price;
+            this.SellerId= request.SellerId;
+            this.Brand = request.Brand;
+            this.Status = request.Status;
+            this.Characteristics = request.Characteristics;
         }
 
         public string Id { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NightFlyer.UseCases.Services.Interfaces
 {
-    public interface IInventoryService
+    public interface IItemService
     {
         Task<CreateItemResponse> CreateItemsAsync(CreateItemRequest request);
 
