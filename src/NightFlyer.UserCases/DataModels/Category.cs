@@ -1,4 +1,6 @@
-﻿namespace NightFlyer.UseCases.DataModels
+﻿using NightFlyer.UseCases.DTOs.Requests;
+
+namespace NightFlyer.UseCases.DataModels
 {
     public record Category
     {
@@ -9,6 +11,13 @@
             this.Id = category.Id;
             this.Description = category.Description;
             this.Name = category.Name;
+        }
+
+        public Category(CreateCategoryRequest createCategoryRequest)
+        {
+            this.Id = Guid.NewGuid().ToString();
+            this.Name = createCategoryRequest.Name;
+            this.Description = createCategoryRequest.Description;
         }
 
         public string Id { get; set; }

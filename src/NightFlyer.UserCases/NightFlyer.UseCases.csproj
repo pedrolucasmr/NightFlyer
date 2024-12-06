@@ -11,8 +11,4 @@
     <ProjectReference Include="..\NightFlyer.Entities\NightFlyer.Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Mappers\" />
-  </ItemGroup>
-
 </Project>

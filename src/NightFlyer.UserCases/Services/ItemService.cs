@@ -1,6 +1,7 @@
 ﻿using NightFlyer.UseCases.DataModels;
 using NightFlyer.UseCases.DTOs.Requests;
 using NightFlyer.UseCases.DTOs.Responses;
+using NightFlyer.UseCases.Mappers;
 using NightFlyer.UseCases.Services.Interfaces;
 using NightFlyer.UseCases.Wrappers.Interfaces;
 
@@ -17,10 +18,21 @@ namespace NightFlyer.UseCases.Services
 
         public async Task<CreateItemResponse> CreateItemsAsync(CreateItemRequest request)
         {
-            var category = _itemCategoryWrapper.CategoryRepository.GetManyCategoriesByIdAsync(request.Categories);
-            var dataModel = new Item(request);
+            var categories = await _itemCategoryWrapper.CategoryRepository.GetManyCategoriesByIdAsync(request.Categories);
+            var newCategories = new List<Category>();
 
-            return new CreateItemResponse();
+            if (request.NewCategories.Any())
+            {
+                newCategories = await AddNewCategories(request.NewCategories);
+            }
+
+            var itemDataModel = new Item(request);
+
+            await _itemCategoryWrapper.ItemRepository.InsertItemAsync(itemDataModel);
+
+            await _itemCategoryWrapper.InsertItemCategoriesAsync(itemDataModel, categories, newCategories);
+
+            return CreateItemResponseMapper.MapFromDataModel(itemDataModel, categories, newCategories);
         }
 
         public Task<DeleteItemResponse> DeleteItemsAsync(DeleteItemRequest request)
@@ -36,6 +48,20 @@ namespace NightFlyer.UseCases.Services
         public Task<UpdateItemResponse> UpdateItemsAsync(UpdateItemRequest request)
         {
             throw new NotImplementedException();
+        }
+
+        private async Task<List<Category>> AddNewCategories(List<CreateCategoryRequest> createCategoryRequests)
+        {
+            var newCategories = new List<Category>();
+
+            foreach (var newCategory in createCategoryRequests)
+            {
+                newCategories.Add(new Category(newCategory));
+            }
+
+            await _itemCategoryWrapper.CategoryRepository.InsertManyCategoriesAsync(newCategories);
+
+            return newCategories;
         }
     }
 }
